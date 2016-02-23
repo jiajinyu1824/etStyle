@@ -1,0 +1,24 @@
+{
+  "name": "etStyle",
+  "version": "0.0.1",
+  "authors": [
+    "yangzhao"
+  ],
+  "description": "一个样式框架",
+  "main": "style.css",
+  "keywords": [
+    "css",
+    "js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.1"
+  }
+}
