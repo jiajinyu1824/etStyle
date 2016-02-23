@@ -5,7 +5,10 @@
     "yangzhao"
   ],
   "description": "一个样式框架",
-  "main": "style.css",
+  "main": [
+    "style.css",
+    "inspinia.js"
+  ],
   "keywords": [
     "css",
     "js"
