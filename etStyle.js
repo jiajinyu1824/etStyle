@@ -20,7 +20,6 @@ $(document).ready(function () {
             $('#page-wrapper').css("min-height", $(window).height() - 60 + "px");
         }
     }
-    $('body').addClass('simple-layout pace-done');
     $(window).bind("load resize scroll", function() {
         if(!$("body").hasClass('body-small')) {
             fix_height();
