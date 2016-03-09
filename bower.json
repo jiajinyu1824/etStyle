@@ -1,13 +1,13 @@
 {
   "name": "etStyle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "authors": [
     "yangzhao"
   ],
-  "description": "一个样式框架",
+  "description": "moudl css js",
   "main": [
     "style.css",
-    "inspinia.js"
+    "etStyle.js"
   ],
   "keywords": [
     "css",
