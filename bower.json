@@ -1,6 +1,6 @@
 {
   "name": "etStyle",
-  "version": "0.0.1",
+  "version": "1.0.3",
   "authors": [
     "yangzhao"
   ],
@@ -22,7 +22,8 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": ">= 1.9.1"
+    "jquery": ">= 1.9.1",
+    "bootstrap": ">= 3.3.4"
   },
   "homepage": "https://github.com/zhaoyang3916/etStyle"
 }
