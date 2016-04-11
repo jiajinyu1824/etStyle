@@ -94,6 +94,7 @@ function fixed(){
             setTimeout(function(){
                 $('#side-menu').metisMenu();
             },200); 
+            $('body.fixed-sidebar .fixed >div').addClass('full-height-scroll');
         }
     } 
 }
