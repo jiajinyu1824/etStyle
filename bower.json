@@ -1,8 +1,8 @@
 {
-  "name": "etStyle",
-  "version": "1.0.4",
+  "name": "et.style",
+  "version": "1.0.5",
   "authors": [
-    "yangzhao"
+    "yang zhao"
   ],
   "description": "moudl css js",
   "main": [
@@ -10,8 +10,8 @@
     "etStyle.js"
   ],
   "keywords": [
-    "css",
-    "js"
+    "layout",
+    "style"
   ],
   "license": "MIT",
   "ignore": [
