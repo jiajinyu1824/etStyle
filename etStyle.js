@@ -73,15 +73,15 @@ function etstyle(){
             },200);
            
             // Fixed Sidebar
-            // if ($("body").hasClass('fixed-sidebar') || $("body").hasClass('canvas-menu')) {
-            //     setTimeout(function(){
-            //         $('.sidebar-collapse').slimScroll({
-            //             height: '100%',
-            //             railOpacity: 0.9
-            //         });
-            //     },200);
+            if ($("body").hasClass('fixed-sidebar') || $("body").hasClass('canvas-menu')) {
+                setTimeout(function(){
+                    $('.sidebar-collapse').slimScroll({
+                        height: '100%',
+                        railOpacity: 0.9
+                    });
+                },200);
                 
-            // }
+            }
         }
     }  
 }
