@@ -1,12 +1,12 @@
 {
   "name": "et.style",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "authors": [
     "yang zhao"
   ],
   "description": "moudl css js",
   "main": [
-    "style.css",
+    "etStyle.css",
     "etStyle.js"
   ],
   "keywords": [

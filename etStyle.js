@@ -1,10 +1,10 @@
-// Minimalize menu when screen is less than 768px
 angular.module('et.style',[]);
 angular.module('et.style').directive('etstyle', etstyle);
 angular.module('et.style').directive('fixed', fixed);
 angular.module('et.style').directive('full', full);
 angular.module('et.style').directive('canvas', canvas);
 angular.module('et.style').directive('simple', simple);
+angular.module('et.style').directive('tabs', tabs);
 $(function() {
     $(window).bind("load resize", function() {
         if ($(this).width() < 769) {
@@ -60,28 +60,28 @@ function etstyle(){
                 var content = $(this).closest('div.ibox');
                 content.remove();
             });
-
             setTimeout(function(){
+                $('.navbar-minimalize').unbind("click");
                 $('.navbar-minimalize').click(function() {
                     $("body").toggleClass("mini-navbar");
                     SmoothlyMenu();
-                });
-                // Close menu in canvas mode
-                $('.close-canvas-menu').click(function() {
-                    $("body").toggleClass("mini-navbar");
-                    SmoothlyMenu();
-                });
-            },200);
-            // Fixed Sidebar
-            if ($("body").hasClass('fixed-sidebar') || $("body").hasClass('canvas-menu')) {
-                setTimeout(function(){
                     $('.sidebar-collapse').slimScroll({
                         height: '100%',
                         railOpacity: 0.9
                     });
-                },200);
+                });
+            },200);
+           
+            // Fixed Sidebar
+            // if ($("body").hasClass('fixed-sidebar') || $("body").hasClass('canvas-menu')) {
+            //     setTimeout(function(){
+            //         $('.sidebar-collapse').slimScroll({
+            //             height: '100%',
+            //             railOpacity: 0.9
+            //         });
+            //     },200);
                 
-            }
+            // }
         }
     }  
 }
@@ -93,7 +93,7 @@ function fixed(){
             $('body').addClass('fixed-sidebar pace-done');
             setTimeout(function(){
                 $('#side-menu').metisMenu();
-            },200); 
+            },200);
             $('body.fixed-sidebar .fixed >div').addClass('full-height-scroll');
         }
     } 
@@ -161,7 +161,14 @@ function canvas(){
             setTimeout(function(){
                 fix_height();
                 $('#side-menu').metisMenu();
+                // Close menu in canvas mode
+                $('.close-canvas-menu').unbind('click');
+                $('.close-canvas-menu').click(function() {
+                    $("body").toggleClass("mini-navbar");
+                    SmoothlyMenu();
+                });
             },200);
+            
         }
     }
     
@@ -191,6 +198,17 @@ function simple(){
                     $('.page-content').css("min-height", windowHeigh - headerHeight - footerHeight + "px");
                 }
             }
+        }
+    }
+}
+function tabs(){
+    return {
+        restrict: 'C',
+        link:function(scope, element){
+            $('.nav-tabs li',element).click(function(){
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.tab-content .tab-pane',element).eq($(this).index()).addClass('active').siblings().removeClass('active');
+            });
         }
     }
 }
