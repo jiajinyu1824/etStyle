@@ -4,7 +4,7 @@ angular.module('et.style').directive('fixed', fixed);
 angular.module('et.style').directive('full', full);
 angular.module('et.style').directive('canvas', canvas);
 angular.module('et.style').directive('simple', simple);
-angular.module('et.style').directive('tabs', tabs);
+angular.module('et.style').directive('ettabs', ettabs);
 $(function() {
     $(window).bind("load resize", function() {
         if ($(this).width() < 769) {
@@ -201,7 +201,7 @@ function simple(){
         }
     }
 }
-function tabs(){
+function ettabs(){
     return {
         restrict: 'C',
         link:function(scope, element){
