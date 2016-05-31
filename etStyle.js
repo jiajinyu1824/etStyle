@@ -6,7 +6,6 @@ angular.module('et.style').directive('canvas', canvas);
 angular.module('et.style').directive('simple', simple);
 angular.module('et.style').directive('ettabs', ettabs);
 angular.module('et.style').directive('metisMenus', metisMenus);
-angular.module('et.style').directive('etView', etView);
 $(function() {
     $(window).bind("load resize", function() {
         if ($(this).width() < 769) {
@@ -87,22 +86,7 @@ function etstyle(){
         }
     }  
 }
-//page-title
-function etView(){
-    return { 
-        restrict: 'EA',  
-        scope: {  
-            'pageTitle': '@'  
-        },  
-        transclude: true,  
-        template: '<div ng-include="\'views/common/header.html\'"></div>'+
-        '<div class="page-content etstyle fixed"><div ng-transclude></div></div>'+
-        '<div ng-include="\'views/common/footer.html\'"></div>',
-        link: function(scope,element){
-            element.css('height','100%');
-        }
-    }
-}
+
  
 //metisMenu
 function metisMenus() {
