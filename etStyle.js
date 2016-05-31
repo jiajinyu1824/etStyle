@@ -5,6 +5,8 @@ angular.module('et.style').directive('full', full);
 angular.module('et.style').directive('canvas', canvas);
 angular.module('et.style').directive('simple', simple);
 angular.module('et.style').directive('ettabs', ettabs);
+angular.module('et.style').directive('metisMenus', metisMenus);
+angular.module('et.style').directive('etView', etView);
 $(function() {
     $(window).bind("load resize", function() {
         if ($(this).width() < 769) {
@@ -85,16 +87,40 @@ function etstyle(){
         }
     }  
 }
+//page-title
+function etView(){
+    return { 
+        restrict: 'EA',  
+        scope: {  
+            'pageTitle': '@'  
+        },  
+        transclude: true,  
+        template: '<div ng-include="\'views/common/header.html\'"></div>'+
+        '<div class="page-content etstyle fixed"><div ng-transclude></div></div>'+
+        '<div ng-include="\'views/common/footer.html\'"></div>',
+        link: function(scope,element){
+            element.css('height','100%');
+        }
+    }
+
+}
+ 
+//metisMenu
+function metisMenus() {
+    return {
+        restrict: 'C',
+        link: function(scope, element){
+            element.metisMenu();
+        }
+    }
+}
 //fixed-sidebar
 function fixed(){
     return {
         restrict: 'C',
         link: function(scope, element){
             $('body').addClass('fixed-sidebar pace-done');
-            setTimeout(function(){
-                $('#side-menu').metisMenu();
-            },200);
-            $('body.fixed-sidebar .fixed >div').addClass('full-height-scroll');
+            $('body.fixed-sidebar .fixed>div').addClass('full-height-scroll');
         }
     } 
 }
@@ -130,7 +156,6 @@ function full(){
             });
             setTimeout(function(){
                 fix_height();
-                $('#side-menu').metisMenu();
             },200);
         }
     }
@@ -160,7 +185,6 @@ function canvas(){
             });
             setTimeout(function(){
                 fix_height();
-                $('#side-menu').metisMenu();
                 // Close menu in canvas mode
                 $('.close-canvas-menu').unbind('click');
                 $('.close-canvas-menu').click(function() {
@@ -201,6 +225,7 @@ function simple(){
         }
     }
 }
+//tabs
 function ettabs(){
     return {
         restrict: 'C',
@@ -212,3 +237,12 @@ function ettabs(){
         }
     }
 }
+//pop box
+// function popbox(){
+//     return {
+//         restrict: 'C',
+//         link:function(scope, element){
+//             $('.popbox').
+//         }
+//     }
+// }
