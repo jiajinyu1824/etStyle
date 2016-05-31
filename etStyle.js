@@ -102,7 +102,6 @@ function etView(){
             element.css('height','100%');
         }
     }
-
 }
  
 //metisMenu
@@ -237,12 +236,3 @@ function ettabs(){
         }
     }
 }
-//pop box
-// function popbox(){
-//     return {
-//         restrict: 'C',
-//         link:function(scope, element){
-//             $('.popbox').
-//         }
-//     }
-// }
