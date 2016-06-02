@@ -6,6 +6,7 @@ angular.module('et.style').directive('canvas', canvas);
 angular.module('et.style').directive('simple', simple);
 angular.module('et.style').directive('ettabs', ettabs);
 angular.module('et.style').directive('metisMenus', metisMenus);
+angular.module('et.style').directive('pageTitle', pageTitle);
 $(function() {
     $(window).bind("load resize", function() {
         if ($(this).width() < 769) {
@@ -86,7 +87,6 @@ function etstyle(){
         }
     }  
 }
-
  
 //metisMenu
 function metisMenus() {
@@ -103,7 +103,6 @@ function fixed(){
         restrict: 'C',
         link: function(scope, element){
             $('body').addClass('fixed-sidebar pace-done');
-            $('body.fixed-sidebar .fixed>div').addClass('full-height-scroll');
         }
     } 
 }
@@ -219,4 +218,16 @@ function ettabs(){
             });
         }
     }
+}
+//page-title
+function pageTitle($rootScope){
+  return {
+    restrict: 'EA',
+    link:function(scope, element, attrs){
+      $rootScope.pageTitle = attrs.pageTitle;
+      element.slimscroll({
+        height: '100%'
+      });
+    }
+  }
 }
