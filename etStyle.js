@@ -7,6 +7,8 @@ angular.module('et.style').directive('simple', simple);
 angular.module('et.style').directive('ettabs', ettabs);
 angular.module('et.style').directive('metisMenus', metisMenus);
 angular.module('et.style').directive('pageTitle', pageTitle);
+angular.module('et.style').directive('sidebarCollapse', sidebarCollapse);
+angular.module('et.style').directive('navbarMinimalize', navbarMinimalize);
 $(function() {
     $(window).bind("load resize", function() {
         if ($(this).width() < 769) {
@@ -37,6 +39,29 @@ function SmoothlyMenu() {
         
     }
 }
+function sidebarCollapse(){
+    return {
+        restrict: 'C',
+        link:function(scope, element){
+            element.slimScroll({
+                height: '100%',
+                railOpacity: 0.9
+            });
+        }
+    }
+}
+function navbarMinimalize(){
+    return {
+        restrict: 'C',
+        link:function(scope, element){
+            element.unbind("click");
+            element.click(function() {
+                $("body").toggleClass("mini-navbar");
+                SmoothlyMenu();
+            });
+        }
+    }
+}
 function etstyle(){
     return {
         restrict: 'C',
@@ -62,28 +87,6 @@ function etstyle(){
                 var content = $(this).closest('div.ibox');
                 content.remove();
             });
-            setTimeout(function(){
-                $('.navbar-minimalize').unbind("click");
-                $('.navbar-minimalize').click(function() {
-                    $("body").toggleClass("mini-navbar");
-                    SmoothlyMenu();
-                    $('.sidebar-collapse').slimScroll({
-                        height: '100%',
-                        railOpacity: 0.9
-                    });
-                });
-            },200);
-           
-            // Fixed Sidebar
-            if ($("body").hasClass('fixed-sidebar') || $("body").hasClass('canvas-menu')) {
-                setTimeout(function(){
-                    $('.sidebar-collapse').slimScroll({
-                        height: '100%',
-                        railOpacity: 0.9
-                    });
-                },200);
-                
-            }
         }
     }  
 }
